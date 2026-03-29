@@ -38,7 +38,10 @@ The [upstream PR](https://github.com/jellyfin-archive/jellyfin-desktop-qt/pull/1
 - The interaction between PiP and fullscreen is complicated. It would probably be simpler to disallow PiP <-> fullscreen transitions entirely, but that would require WebView changes and careful handling of shortcuts, including video double-click behavior. The current implementation handles all transitions well enough.
 - On macOS, transitioning from PiP back to normal mode can break WebView mouse tracking if the cursor is already inside the restored window bounds. This prevents mouse cursor and webview OSD from reappearing if `mouseIdle` transitioned to `true`. WebView needs a native mouse-enter event to re-establish tracking. The most reliable fix I found was to place the window off-screen, then restore it on the next event-loop tick. This may be avoidable by keeping the PiP window framed, but the frameless PiP behavior is worth the tradeoff in my opinion.
 
+---
 # Original Jellyfin Desktop README
+> [!WARNING]
+> **Deprecated:** Development of this Qt-based desktop client has stopped in favor of a completely rewritten client built on SDL and CEF. The new client can be found at [jellyfin/jellyfin-desktop](https://github.com/jellyfin/jellyfin-desktop).
 
 Jellyfin desktop client built with Qt WebEngine and [libmpv](https://github.com/mpv-player/mpv). Supports audio passthrough, hardware decoding, and playback of more formats without transcoding.
 
